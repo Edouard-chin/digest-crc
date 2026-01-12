@@ -63,7 +63,7 @@ shared_examples_for "CRC" do
     it "should calculate CRC inside ractor" do
       digest = Ractor.new(described_class, string) { |klass, string|
         klass.hexdigest(string)
-      }.take
+      }.value
 
       expect(digest).to eq expected
     end
