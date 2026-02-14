@@ -85,5 +85,10 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc32_mpeg/crc32_mpeg_ext'; rescue LoadError; end
+  begin
+    ruby_version = /(\d+\.\d+)/.match(RUBY_VERSION)
+    require "digest/crc32_mpeg/#{ruby_version}/crc32_mpeg_ext"
+  rescue LoadError
+    begin; require 'digest/crc32_mpeg/crc32_mpeg_ext'; rescue LoadError; end
+  end
 end

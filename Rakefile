@@ -38,7 +38,7 @@ namespace :spec do
     RSpec::Core::RakeTask.new(:c_exts) do |t|
       t.exclude_pattern = 'spec/integration/*_spec.rb'
     end
-    task :c_exts => 'build:c_exts'
+    task :c_exts
   end
 
   RSpec::Core::RakeTask.new(:integration) do |t|

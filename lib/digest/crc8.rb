@@ -36,5 +36,10 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc8/crc8_ext'; rescue LoadError; end
+  begin
+    ruby_version = /(\d+\.\d+)/.match(RUBY_VERSION)
+    require "digest/crc8/#{ruby_version}/crc8_ext"
+  rescue LoadError
+    begin; require 'digest/crc8/crc8_ext'; rescue LoadError; end
+  end
 end

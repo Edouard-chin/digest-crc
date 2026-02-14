@@ -81,10 +81,15 @@ module Digest
       0x620ba46c27f3aa2c, 0x1d6554a417c62355, 0x9cd645fc4798b8de, 0xe3b8b53477ad31a7,
       0xab69411fbfb21ca3, 0xd407b1d78f8795da, 0x55b4a08fdfd90e51, 0x2ada5047efec8728
     ].freeze
- 
+
   end
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc64_nvme/crc64_nvme_ext'; rescue LoadError; end
+  begin
+    ruby_version = /(\d+\.\d+)/.match(RUBY_VERSION)
+    require "digest/crc64_nvme/#{ruby_version}/crc64_nvme_ext"
+  rescue LoadError
+    begin; require 'digest/crc64_nvme/crc64_nvme_ext'; rescue LoadError; end
+  end
 end

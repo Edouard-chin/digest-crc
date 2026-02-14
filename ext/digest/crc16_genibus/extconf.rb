@@ -4,4 +4,4 @@ have_header("stdint.h")
 have_header('stddef.h')
 
 create_header
-create_makefile "crc16_genibus_ext"
+create_makefile "digest/crc16_genibus/crc16_genibus_ext"

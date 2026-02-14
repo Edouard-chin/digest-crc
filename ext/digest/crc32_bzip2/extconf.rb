@@ -4,4 +4,4 @@ have_header("stdint.h")
 have_header('stddef.h')
 
 create_header
-create_makefile "crc32_bzip2_ext"
+create_makefile "digest/crc32_bzip2/crc32_bzip2_ext"

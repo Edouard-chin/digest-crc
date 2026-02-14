@@ -84,5 +84,10 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc64_jones/crc64_jones_ext'; rescue LoadError; end
+  begin
+    ruby_version = /(\d+\.\d+)/.match(RUBY_VERSION)
+    require "digest/crc64_jones/#{ruby_version}/crc64_jones_ext"
+  rescue LoadError
+    begin; require 'digest/crc64_jones/crc64_jones_ext'; rescue LoadError; end
+  end
 end

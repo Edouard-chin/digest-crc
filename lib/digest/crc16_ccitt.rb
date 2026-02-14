@@ -50,5 +50,10 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc16_ccitt/crc16_ccitt_ext'; rescue LoadError; end
+  begin
+    ruby_version = /(\d+\.\d+)/.match(RUBY_VERSION)
+    require "digest/crc16_ccitt/#{ruby_version}/crc16_ccitt_ext"
+  rescue LoadError
+    begin; require 'digest/crc16_ccitt/crc16_ccitt_ext'; rescue LoadError; end
+  end
 end

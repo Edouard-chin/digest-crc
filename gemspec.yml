@@ -1,4 +1,4 @@
-name: digest-crc
+name: precompiled-digest-crc
 version: 0.7.0
 summary: A Cyclic Redundancy Check (CRC) library for Ruby.
 description:
@@ -15,9 +15,6 @@ metadata:
   source_code_uri:   https://github.com/postmodern/digest-crc
   bug_tracker_uri:   https://github.com/postmodern/digest-crc/issues
   changelog_uri:     https://github.com/postmodern/digest-crc/blob/master/ChangeLog.md
-
-extensions:
- - ext/digest/Rakefile
 
 required_ruby_version: '>= 3.0.0'
 
